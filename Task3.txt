@@ -1,0 +1,22 @@
+1. 
+In componentDidMount, web3 is used to connect to the eth network. After waiting for 
+the getWeb3 async function, web3.eth contains everything we need. We can pull out the
+user's account and the contract instance. This is how the user gets connected to the 
+blockchain network.
+
+2.
+In fetchLoot (line by line explanation):
+Pull out the stateful variables to constants for later use.
+Set the state variable "initializing" to true to indicate we are working within "fetchLoot".
+Get the total number of tokens by calling the corresponding function in "contract.methods".
+Initialize two lists to store available tokens and owned tokens.
+Looping through all tokens.
+Call the corresponding functions in "contract.methods" to get the tokenId, the token instance,
+and the token owner.
+Create a "deciphered" variable by passing in the parameters, which are partially from the 
+parameters passed in to this function, and partially from the token information we just 
+pulled out.
+Check if the token is owned by the called. If so, add to the "owned" list. If not, add to 
+the "available" list.
+Set the state variable "initializing" to false to indicate we have done setting up the 
+necessary information. Store the "owned" and "available" lists to state variables to display.
